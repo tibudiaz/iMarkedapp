@@ -3,9 +3,9 @@ import { ScrollView, View, Text, Image, TouchableOpacity, TextInput, Button, Sty
 import { AgregarProductoForm } from '../components/agregarProducto';
 
 const catalogoData = [
-  { id: 1, name: 'Producto 1', price: 10.99, imageUrl: require('../assets/img/11.jpg') },
-  { id: 2, name: 'Producto 2', price: 15.99, imageUrl: require('../assets/img/12.png') },
-  { id: 3, name: 'Producto 3', price: 5.99, imageUrl: require('../assets/img/13p.jpg') },
+  { id: 1, name: 'iPhone 11 USADO', price: 460, imageUrl: require('../assets/img/11.jpg') },
+  { id: 2, name: 'iPhone 12 USADO', price: 560, imageUrl: require('../assets/img/12.png') },
+  { id: 3, name: 'iPhone 13 USADO', price: 780, imageUrl: require('../assets/img/13p.jpg') },
 ];
 
 export default function CatalogoScreen ({ navigation }){

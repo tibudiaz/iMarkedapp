@@ -10,7 +10,7 @@ const HomeScreen = ({ navigation }) => {
         onPress={() => navigation.navigate('Catalogo Usados')}
       >
         <Image
-          source={require('../assets/img/11.jpg')}
+          source={require('../assets/img/usados.jpg')}
           style={styles.image}
         />
         <Text style={styles.cardText}>Catálogo de Usados</Text>
@@ -20,7 +20,7 @@ const HomeScreen = ({ navigation }) => {
         onPress={() => navigation.navigate('Catalogo Nuevos')}
       >
         <Image
-          source={require('../assets/img/12.png')}
+          source={require('../assets/img/nuevos.jpg')}
           style={styles.image}
         />
         <Text style={styles.cardText}>Catálogo de Nuevos</Text>
@@ -30,7 +30,7 @@ const HomeScreen = ({ navigation }) => {
         onPress={() => navigation.navigate('Plan Canje')}
       >
         <Image
-          source={require('../assets/img/13p.jpg')}
+          source={require('../assets/img/canje.jpg')}
           style={styles.image}
         />
         <Text style={styles.cardText}>Plan de Canje</Text>
