@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { ScrollView, View, Text, Image, TouchableOpacity, TextInput, Button } from 'react-native';
-import { StyleSheet } from 'react-native';
-import { AgregarProductoForm } from './agregarProducto';
+import { ScrollView, View, Text, Image, TouchableOpacity, TextInput, Button, StyleSheet } from 'react-native';
+import { AgregarProductoForm } from '../components/agregarProducto';
 
 const catalogoData = [
   { id: 1, name: 'Producto 1', price: 10.99, imageUrl: require('../assets/img/11.jpg') },
@@ -9,7 +8,7 @@ const catalogoData = [
   { id: 3, name: 'Producto 3', price: 5.99, imageUrl: require('../assets/img/13p.jpg') },
 ];
 
-export const CatalogoList = () => {
+export default function CatalogoScreen ({ navigation }){
   const [productos, setProductos] = useState(catalogoData);
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
 
@@ -24,7 +23,11 @@ export const CatalogoList = () => {
   };
 
   const renderProducto = (item) => (
-    <View key={item.id} style={styles.card}>
+    <TouchableOpacity
+      key={item.id}
+      style={styles.card}
+      onPress={() => navigation.navigate('Producto', { product: item })}
+    >
       <View style={styles.imageContainer}>
         {item.imageUrl && <Image source={item.imageUrl} style={styles.image} />}
       </View>
@@ -33,7 +36,7 @@ export const CatalogoList = () => {
       <TouchableOpacity onPress={() => eliminarProducto(item.id)}>
         <Text style={styles.eliminar}>Eliminar</Text>
       </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
   );
 
   const renderAgregarProductoForm = () => {
@@ -103,3 +106,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+
+

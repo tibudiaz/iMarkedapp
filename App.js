@@ -1,20 +1,11 @@
-
-import {  View } from 'react-native';
-import { TopBar } from './components/TopBar';
-import { CatalogoList } from './components/catalogoList';
-import { SafeAreaView, ScrollView } from 'react-native';
-
+import React from "react";
+import ShopNavigator from "./navigation/ShopNavigator";
 
 
 export default function App() {
+
+
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>   
-          <View style={{ flex: 1 }}>
-          <TopBar />
-          <CatalogoList />
-          </View>
-      </ScrollView>
-    </SafeAreaView>
+    <ShopNavigator />
   );
 }
