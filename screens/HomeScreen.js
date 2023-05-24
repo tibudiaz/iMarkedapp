@@ -1,13 +1,14 @@
 import React from "react";
-import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
+import {ScrollView, Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 
 const HomeScreen = ({ navigation }) => {
   return (
+    <ScrollView>
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.card}
-        onPress={() => navigation.navigate('Catalogo', { screen: 'Catalogo Usados' })}
+        onPress={() => navigation.navigate('Usados', { screen: 'Catalogo Usados' })}
       >
         <Image
           source={require('../assets/img/usados.jpg')}
@@ -17,7 +18,7 @@ const HomeScreen = ({ navigation }) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.card}
-        onPress={() => navigation.navigate('Catalogo Nuevos', { screen: 'Catalogo Nuevos' })}
+        onPress={() => navigation.navigate('Nuevos', { screen: 'Catalogo Nuevos' })}
       >
         <Image
           source={require('../assets/img/nuevos.jpg')}
@@ -36,6 +37,7 @@ const HomeScreen = ({ navigation }) => {
         <Text style={styles.cardText}>Plan de Canje</Text>
       </TouchableOpacity>
     </View>
+    </ScrollView>
   );
 };
 

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../Constant/actions';
 import ModalDropdown from 'react-native-modal-dropdown';
 
 const PlanCanjeScreen = () => {
@@ -12,6 +14,8 @@ const PlanCanjeScreen = () => {
   useEffect(() => {
     getExchangeRate();
   }, []);
+
+  const dispatch = useDispatch();
 
   const getExchangeRate = () => {
     fetch("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
@@ -75,6 +79,16 @@ const PlanCanjeScreen = () => {
     setPrecio(nuevoPrecio);
   };
 
+  const agregarAlCarrito = () => {
+    const producto = {
+      name: modelo,
+      price: -precio,
+      currency: 'USD',
+    };
+
+    dispatch(addToCart(producto));
+  };
+
   const precioEnPesos = (precio * exchangeRate).toFixed(0).slice(0, -2);
 
   return (
@@ -102,87 +116,71 @@ const PlanCanjeScreen = () => {
           dropdownTextStyle={styles.dropdownText}
         />
       </View>
-            <TextInput style={styles.input}
-            placeholder="Porcentaje de Batería"
-            value={porcentajeBateria}
-            onChangeText={setPorcentajeBateria}
-            />
-            <Button title="Calcular Precio" onPress={calcularPrecio} />
-            <Text style={styles.result}>
-                Precio en USD: ${precio}
-            </Text>
-            <Text style={styles.result}>
-                Precio en ARS: ${precioEnPesos}
-            </Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Porcentaje de Batería"
+        value={porcentajeBateria}
+        onChangeText={setPorcentajeBateria}
+      />
+      <Button title="Calcular Precio" onPress={calcularPrecio} />
+      <Text style={styles.result}>Precio en USD: ${precio}</Text>
+      <Text style={styles.result}>Precio en ARS: ${precioEnPesos}</Text>
+      <Button title="Aceptar Cotización" onPress={agregarAlCarrito} />
     </View>
-);
+  );
 };
 
-    const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        paddingHorizontal: 20,
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: "bold",
-        marginBottom: 20,
-    },
-    pickerContainer: {
-        width: "100%",
-        marginBottom: 10,
-    },
-    picker: {
-        borderWidth: 1,
-        borderColor: "gray",
-        borderRadius: 5,
-        paddingVertical: 10,
-        paddingHorizontal: 15,
-    },
-    pickerText: {
-        fontSize: 16,
-    },
-    dropdown: {
-        marginTop: 1,
-        borderWidth: 1,
-        borderColor: "gray",
-        borderRadius: 5,
-    },
-    dropdownText: {
-        fontSize: 16,
-        paddingHorizontal: 15,
-        paddingVertical: 10,
-    },
-    input: {
-        width: "100%",
-        height: 40,
-        borderWidth: 1,
-        borderColor: "gray",
-        borderRadius: 5,
-        marginBottom: 10,
-        paddingHorizontal: 10,
-    },
-    button: {
-        width: "100%",
-        height: 40,
-        backgroundColor: "#007AFF",
-        borderRadius: 5,
-        justifyContent: "center",
-        alignItems: "center",
-        marginBottom: 10,
-    },
-    buttonText: {
-        color: "#fff",
-        fontSize: 16,
-        fontWeight: "bold",
-    },
-    result: {
-        fontSize: 18,
-        fontWeight: "bold",
-        marginTop: 20,
-    },
-    });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  pickerContainer: {
+    width: '100%',
+    marginBottom: 10,
+  },
+  picker: {
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 5,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+  },
+  pickerText: {
+    fontSize: 16,
+  },
+  dropdown: {
+    marginTop: 1,
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 5,
+  },
+  dropdownText: {
+    fontSize: 16,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+  },
+  input: {
+    width: '100%',
+    height: 40,
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 5,
+    marginBottom: 10,
+    paddingHorizontal: 10,
+  },
+  result: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 20,
+  },
+});
 
 export default PlanCanjeScreen;
