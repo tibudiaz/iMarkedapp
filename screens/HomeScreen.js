@@ -7,7 +7,7 @@ const HomeScreen = ({ navigation }) => {
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.card}
-        onPress={() => navigation.navigate('Catalogo Usados')}
+        onPress={() => navigation.navigate('Catalogo', { screen: 'Catalogo Usados' })}
       >
         <Image
           source={require('../assets/img/usados.jpg')}
@@ -17,7 +17,7 @@ const HomeScreen = ({ navigation }) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.card}
-        onPress={() => navigation.navigate('Catalogo Nuevos')}
+        onPress={() => navigation.navigate('Catalogo Nuevos', { screen: 'Catalogo Nuevos' })}
       >
         <Image
           source={require('../assets/img/nuevos.jpg')}

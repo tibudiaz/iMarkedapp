@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, View, Text, Image, TouchableOpacity, TextInput, Button, StyleSheet } from 'react-native';
+import { ScrollView, View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { AgregarProductoForm } from '../components/agregarProducto';
 
 const catalogoData = [

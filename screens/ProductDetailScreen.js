@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
+
 const ProductDetail = ({ route }) => {
   const { product } = route.params;
 
@@ -52,4 +53,3 @@ const styles = StyleSheet.create({
 });
 
 export default ProductDetail;
-

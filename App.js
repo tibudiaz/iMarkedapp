@@ -1,11 +1,10 @@
 import React from "react";
-import ShopNavigator from "./navigation/ShopNavigator";
-
+import TabNavigator from './tabNavigation/TabNavigator';
 
 export default function App() {
 
 
   return (
-    <ShopNavigator />
+    <TabNavigator />
   );
 }
