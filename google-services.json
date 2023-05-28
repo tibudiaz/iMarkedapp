@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "437165689363",
+    "project_id": "imarketapp-84681",
+    "storage_bucket": "imarketapp-84681.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437165689363:android:52945ecdf4b9be51e3cde6",
+        "android_client_info": {
+          "package_name": "com.company.imarket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437165689363-k7k72cfhbq8lhk7uiqkdiqtetjk7tgal.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2Hvfu4LFrONmcZZTQsahn6TZYmby1Iko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437165689363-k7k72cfhbq8lhk7uiqkdiqtetjk7tgal.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
